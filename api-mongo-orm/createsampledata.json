@@ -1,0 +1,40 @@
+{
+  "patient": {
+    "Id": "P111",
+    "PatientId": "PID001",
+    "PatientName": "Testing",
+    "Age": 35,
+    "Sex": "Male",
+    "BirthDate": "1988-01-15",
+    "BirthTime": "08:30:00"
+  },
+  "study": {
+    "StudyInstanceUid": 1019,
+    "StudyDate": "2023-09-15",
+    "StudyTime": "10:45:00",
+    "AccessionNumber": 12345,
+    "StudyID": 5678,
+    "StudyDescription": "CT Scan",
+    "ReferringPhysiciansName": "Dr. Smith",
+    "PerformingPhysiciansName": "Dr. Johnson"
+  },
+  "series": {
+    "seriesInstanceUID": 110,
+    "Modality": "CT",
+    "SeriesNumber": 1,
+    "SeriesDate": "2023-09-15",
+    "SeriesTime": "11:00:00",
+    "BodyPartExamined": "Head",
+    "SeriesDescription": "Head Scan"
+  },
+  "image": {
+    "SOPInstanceUID": "1234567890", 
+    "instanceNumber": 1,
+    "SOPClassUID": "1.2.840.10008.5.1.4.1.1.7",
+    "TransferSyntaxUID": "1.2.840.10008.1.2",
+    "FileUrls": [
+      "https://example.com/image00111.jpg",
+      "https://example.com/image002.jpg"
+    ]
+  }
+}

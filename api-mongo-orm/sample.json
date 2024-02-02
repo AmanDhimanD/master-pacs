@@ -1,0 +1,59 @@
+- register
+{
+  "name": "John Doe",
+  "email": "john.doe@example.com",
+  "password": "securepassword"
+
+- login 
+{
+  "email": "john.doe@example.com",
+  "password": "securepassword"
+}
+
+- Patient 
+{
+  "Id": "P0001",
+  "PatientId": "PID12345",
+  "PatientName": "John Doe",
+  "Age": 35,
+  "Sex": "Male",
+  "BirthDate": "1988-07-15",
+  "BirthTime": "10:30 AM"
+}
+
+- Study 
+{
+  "StudyInstanceUid": 1234567890,
+  "StudyDate": "2023-07-23",
+  "StudyTime": "13:30:00",
+  "AccessionNumber": 987654321,
+  "StudyID": 54321,
+  "StudyDescription": "Sample Study Description",
+  "ReferringPhysiciansName": "Dr. John Smith",
+  "PerformingPhysiciansName": "Dr. Jane Doe",
+  "patient": "60fd12345678901234abcd56" 
+}
+
+- Series 
+{
+  "seriesInstanceUID": 123456789,
+  "Modality": "CT",
+  "SeriesNumber": 1,
+  "SeriesDate": "2023-07-23",
+  "SeriesTime": "12:34:56",
+  "BodyPartExamined": "Head",
+  "SeriesDescription": "Head CT Scan",
+  "study": "6151f5a4d8e12a001f45aabc" 
+}
+
+- Images
+{
+  "SOPInstanceUID": "1.2.840.113564.1722482632.20230115144021.1",
+  "instanceNumber": 1,
+  "SOPClassUID": "1.2.840.10008.5.1.4.1.1.7",
+  "TransferSyntaxUID": "1.2.840.10008.1.2",
+  "FileUrls": [
+    
+  ],
+  "series": "615dfdb3a81a6b001f8a1a2c"
+}
