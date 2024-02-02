@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample Viewer</title>
+    <meta
+      name="viewport"
+      content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1, minimal-ui"
+    />
+    <link rel="stylesheet" href="lib/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="lib/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="lib/css/jquery-ui.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="css/viewer.css" />
+  </head>
+  <body>
+    <div id="tabContent" class="viewercontainer">
+      <div class="">
+        <nav id="toolbar">
+          <div style="width: 10px"></div>
+          <div class="toolbar-wrapper">
+            <ul class="toolbar">
+              <li id="toolbar-item-windowing" class="toolbar-item active">
+                <div
+                  class="button-tool-ww main-toolbar-button"
+                  title="Windowing (W)"
+                >
+                  <div class="button-icon svg-icon-windowing active"></div>
+                  <div class="mouse-button svg-icon-mouse-left-button"></div>
+                  <p class="button-label">Windowing</p>
+                </div>
+              </li>
+
+              <li id="toolbar-item-windowing" class="toolbar-item active">
+                <div
+                  class="button-tool-invert main-toolbar-button"
+                  title="Invert"
+                >
+                  <div class="button-icon svg-icon-invert active"></div>
+                  <div class="mouse-button svg-icon-mouse-left-button"></div>
+                  <p class="button-label">Invert</p>
+                </div>
+              </li>
+
+              <li id="toolbar-item-zoom" class="toolbar-item active">
+                <div
+                  class="button-tool-zoom main-toolbar-button"
+                  title="Zoom (Z)"
+                >
+                  <div class="button-icon svg-icon-zoom active"></div>
+                  <div class="mouse-button svg-icon-mouse-right-button"></div>
+                  <p class="button-label">Zoom</p>
+                </div>
+              </li>
+
+              <li id="toolbar-item-pan" class="toolbar-item active">
+                <div
+                  class="button-tool-pan main-toolbar-button"
+                  title="Pan (T)"
+                >
+                  <div class="button-icon svg-icon-hand active"></div>
+                  <div class="mouse-button svg-icon-mouse-middle-button"></div>
+                  <p class="button-label">Pan</p>
+                </div>
+              </li>
+
+              <li id="toolbar-item-measure" class="toolbar-item active">
+                <div
+                  class="button-tool-rotateleft main-toolbar-button"
+                  title="Rotate (L)"
+                >
+                  <div class="button-icon svg-icon-rotate active"></div>
+                  <p class="button-label">Rotate (L)</p>
+                </div>
+              </li>
+
+              <li id="toolbar-item-measure" class="toolbar-item active">
+                <div
+                  class="button-tool-rotateright main-toolbar-button"
+                  title="Rotate (R)"
+                >
+                  <div
+                    class="button-icon svg-icon-rotate active"
+                    style="transform: scaleX(-1)"
+                  ></div>
+                  <p class="button-label">Rotate (R)</p>
+                </div>
+              </li>
+
+              <li id="toolbar-item-measure" class="toolbar-item active">
+                <div
+                  class="button-tool-magnifier main-toolbar-button"
+                  title="Magnify"
+                >
+                  <div class="button-icon svg-icon-magnifier active"></div>
+                  <p class="button-label">Magnify</p>
+                </div>
+              </li>
+
+              <li id="toolbar-item-measure" class="toolbar-item active">
+                <div
+                  class="button-tool-fliphorizontal main-toolbar-button"
+                  title="Flip (H)"
+                >
+                  <div
+                    class="button-icon svg-icon-flip-horizontal active"
+                  ></div>
+                  <p class="button-label">Flip (H)</p>
+                </div>
+              </li>
+
+              <li id="toolbar-item-measure" class="toolbar-item active">
+                <div
+                  class="button-tool-flipvertical main-toolbar-button"
+                  title="Flip (V)"
+                >
+                  <div class="button-icon svg-icon-flip-vertical active"></div>
+                  <p class="button-label">Flip (V)</p>
+                </div>
+              </li>
+
+              <li id="toolbar-item-scroll" class="toolbar-item active">
+                <div
+                  class="button-tool-stack main-toolbar-button"
+                  title="Scroll (Y)"
+                >
+                  <div class="button-icon svg-icon-layers active"></div>
+                  <p class="button-label">Scroll</p>
+                </div>
+              </li>
+
+              <li id="toolbar-item-measure" class="toolbar-item active">
+                <div
+                  class="button-tool-measure main-toolbar-button"
+                  title="Measure"
+                >
+                  <div
+                    class="button-icon svg-icon-unknown-measurement active"
+                  ></div>
+                  <p class="button-label">Measure</p>
+                </div>
+              </li>
+
+              <li id="toolbar-item-measure" class="toolbar-item active">
+                <div
+                  class="button-tool-angle main-toolbar-button"
+                  title="Angle"
+                >
+                  <div class="button-icon svg-icon-angle active"></div>
+                  <p class="button-label">Angle</p>
+                </div>
+              </li>
+
+              <li id="toolbar-item-measure" class="toolbar-item active">
+                <div class="button-tool-hu main-toolbar-button" title="Probe">
+                  <div class="button-icon svg-icon-roi active"></div>
+                  <p class="button-label">Probe</p>
+                </div>
+              </li>
+
+              <li id="toolbar-item-measure" class="toolbar-item active">
+                <div
+                  class="button-tool-ellipse main-toolbar-button"
+                  title="Ellipse"
+                >
+                  <div class="button-icon svg-icon-ellipse active"></div>
+                  <p class="button-label">Ellipse</p>
+                </div>
+              </li>
+
+              <li id="toolbar-item-measure" class="toolbar-item active">
+                <div
+                  class="button-tool-rectangle main-toolbar-button"
+                  title="Ellipse"
+                >
+                  <div class="button-icon svg-icon-area active"></div>
+                  <p class="button-label">Rectangle</p>
+                </div>
+              </li>
+
+              <li
+                id="toolbar-item-layout"
+                class="toolbar-item active"
+                style="position: relative"
+              >
+                <div
+                  class="main-toolbar-button dropdown-toggle"
+                  title="Layout"
+                  data-container="body"
+                  data-toggle="dropdown"
+                  aria-expanded="false"
+                  data-placement="top"
+                >
+                  <div class="button-icon svg-icon-layout"></div>
+                  <p class="button-label">Layout</p>
+                </div>
+                <div class="main-toolbar-button main-toolbar-button-arrow">
+                  <div
+                    class="button-icon svg-icon-sub-toolbar-arrow active"
+                  ></div>
+                </div>
+                <ul class="pull-right dropdown-menu choose-layout" role="menu">
+                  <li><a href="#">1x1</a></li>
+                  <li><a href="#">2x1</a></li>
+                  <li><a href="#">1x2</a></li>
+                  <li><a href="#">2x2</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <button
+            class="dicom-modal btn"
+            data-toggle="modal"
+            data-target="#myModal"
+            style="cursor: pointer"
+          >
+            <i class="fa-solid fa-pen-to-square"></i>
+          </button>
+          <div
+            class="modal fade"
+            id="myModal"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="myModalLabel"
+          >
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <button
+                    class="dicom-button"
+                    onclick="f1()"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title="Text bold"
+                  >
+                    <i class="fa-solid fa-bold"></i>
+                  </button>
+                  <button
+                    class="dicom-button"
+                    onclick="f2()"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title="Text italic"
+                  >
+                    <i class="fa-solid fa-italic"></i>
+                  </button>
+                  <button
+                    class="dicom-button"
+                    onclick="f3()"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title="Left Align"
+                  >
+                    <i class="fa-solid fa-align-left"></i>
+                  </button>
+                  <button
+                    class="dicom-button"
+                    onclick="f4()"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title="Center Align"
+                  >
+                    <i class="fa-solid fa-align-center"></i>
+                  </button>
+                  <button
+                    class="dicom-button"
+                    onclick="f5()"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title="Right Align"
+                  >
+                    <i class="fa-solid fa-align-right"></i>
+                  </button>
+                  <button
+                    class="dicom-button"
+                    onclick="f6()"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title="Text Uppercase"
+                  >
+                    Uppercase
+                  </button>
+                  <button
+                    class="dicom-button"
+                    onclick="f7()"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title="Text LowerCase"
+                  >
+                    Lowercase
+                  </button>
+                  <button
+                    class="dicom-button"
+                    onclick="f8()"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title="Text Capitalize"
+                  >
+                    Capitalize
+                  </button>
+                  <button
+                    class="dicom-button"
+                    onclick="f9()"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title="Clear Text"
+                  >
+                    Clear
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <div id="popupContainer" class="popup">
+                    <div class="popup-content">
+                      <textarea id="codeEditor"></textarea>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    data-dismiss="modal"
+                    onclick="submitTextToAPI()"
+                  >
+                    Submit
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-dismiss="modal"
+              onclick="openHalfSizeWindow()"
+            >
+              Open the Reports
+            </button>
+          </div>
+        </nav>
+
+        <div class="thumbnail-viewer thumbnail-left studyContainer">
+          <div
+            id="thumbnails-toolbar"
+            class="vertical"
+            style="flex-basis: 15rem"
+          >
+            <div class="thumbnails">
+              <div
+                class="thumbnails-study-body"
+                style="display: flex; --thumbnail-size: 100px"
+              ></div>
+            </div>
+          </div>
+          <!-- The parent container element must be imageViewerContainer -->
+          <div id="viewports-layout" class="viewports-layout">
+            <div id="imageViewerContainer" class="imageViewerContainer"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="lib/editor.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="lib/jquery.min.js"></script>
+    <script src="lib/jquery-ui.min.js"></script>
+    <script src="lib/hammer.min.js"></script>
+    <script src="lib/bootstrap.min.js"></script>
+    <script>
+      //Note: The Viewer must be launched with studyId parameter as below
+      //      http://localhost:8080/sampleview.html?studyId=1.2.840.113619.6.495.140668778872864312341355949191068617141
+
+      var debugMode = false;
+
+      //Note: This is the api endPoint for reading data, We have added this temporary for testing,
+      //      For final deployment the end point must include studyId parameter for identifying the selected study.
+      //      The parameter name must "studyId", keep the case intact.
+      //      e.g. http://localhost:8000//api/v2/medical-data/650ecb30afb8887a5212decc?studyId=1.2.3
+      var apiEndPoint =
+        "http://localhost:8000/api/v2/medical-data/650ecb30afb8887a5212decc";
+    </script>
+    <script src="dist/viewerlib.js"></script>
+    <script src="dist/viewerclient.js"></script>
+    <script src="dist/appbootstrap.js"></script>
+  </body>
+</html>

@@ -1,0 +1,20 @@
+{
+  "name": "integration",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "admin": "cd admin && npm start",
+    "user": "cd user && npm start",
+    "api": "cd api-mongo-orm && nodemon index.js",
+    "dev": "concurrently \"npm run api\" \"npm run admin\" \"npm run user\" \"cd viwer-study-main-main && npm install http-server -g && http-server\" "
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^8.2.2",
+    "nodemon": "^3.0.3"
+  }
+}
