@@ -392,8 +392,10 @@
       //      For final deployment the end point must include studyId parameter for identifying the selected study.
       //      The parameter name must "studyId", keep the case intact.
       //      e.g. http://localhost:8000//api/v2/medical-data/650ecb30afb8887a5212decc?studyId=1.2.3
-      var apiEndPoint =
-        "http://localhost:8000/api/v2/medical-data/650ecb30afb8887a5212decc";
+
+      var studyId = parseInt(window.location.href.split("&&_id=")[1]);
+
+      var apiEndPoint = `http://localhost:8000/api/v2/medical-data/${studyId}`;
     </script>
     <script src="dist/viewerlib.js"></script>
     <script src="dist/viewerclient.js"></script>
