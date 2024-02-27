@@ -63,11 +63,13 @@ const FilterPart = () => {
             // Open the new window
             //const newWindow = window.open('/viewerOpenHoga', '_blank', 'width=760,height=760');
             let studyDataID;
+
             combinedData.forEach(item => {
                 studyDataID = item.StudyInstanceUid
             })
             //window.open(`http://localhost:3001/sampleview.html?studyId=` + studyDataID, '_blank', 'width=1500,height=760');
-            const newWindow = window.open(`http://127.0.0.1:8080/index.html?studyId=` + studyDataID, '_blank', 'width=1500,height=760');
+            const newWindow = window.open(`http://127.0.0.1:8080/index.html?studyId=` + studyDataID + `&&_id=` + ID, '_blank', 'width=1500,height=760');
+            //const newWindow = window.open(`http://127.0.0.1:3001/index.html?studyId=` + studyDataID + `&&_id=` + ID , '_blank', 'width=1500,height=760');
 
             // Check if the new window is closed and reload the page
             const checkClosed = () => {
